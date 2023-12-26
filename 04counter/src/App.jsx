@@ -9,7 +9,7 @@ function App() {
     <>
       <button onClick={(e) => setCounter(counter - 1)}>-</button>
       <h1>Counter: {counter}</h1>
-      <button onClick={(e) => setCounter(counter + 1)} >+</button>
+      <button onClick={(e) => setCounter(counter + 1)}>+</button>
     </>
   );
 }
