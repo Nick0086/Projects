@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MdDeleteForever } from "react-icons/md";
 
-function TodoList() {
+function TodoList({task,id,deleteTodo}) {
+
+    const[check , setCheck] = useState(false)
+
     return (
         <>
             <li className='flex'>
-                <input  type="checkbox" className='custom-checkbox' />
-                <input id='id' type="text" className='todo-name' value='hello' readOnly />
-                <MdDeleteForever className='remove-icon' />
+                <input  type="checkbox" className='custom-checkbox' onClick={() => setCheck(!check)} />
+                <input id='id' type="text" className={`todo-name ${check ? "line" : ''} `} value={task} readOnly />
+                <MdDeleteForever className='remove-icon' onClick={(e) => deleteTodo(id)} />
             </li>
         </>
     )
