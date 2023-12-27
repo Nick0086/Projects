@@ -1,7 +1,6 @@
 .todo-body {
-    max-width: 400px;
-    width: 400px;
     margin: auto;
+    width: 270px;
     background: #171717;
     font-family: var(--font);
     border-radius: 10px;
@@ -10,6 +9,20 @@
     color: #455963;
     box-shadow: 0 7px 30px rgba(75, 70, 6, 0.3);
 }
+
+@media screen and ( width >= 1024px){
+    .todo-body{
+        width: 500px !important;
+    }
+}
+
+@media screen and ( width > 425px) and (width < 1024px){
+    .todo-body{
+        width: 400px !important;
+    }
+}
+
+
 
 .todo-form {
     margin: 10px;
@@ -75,6 +88,7 @@
     font-weight: 700;
     margin: 0px;
     color: #ffb510;
+    text-align: center;
 }
 
 .plus-icon {
@@ -153,6 +167,7 @@ input[type="checkbox"]:checked::before {
     border-bottom: 1px solid #a8b5bb;
 }
 
+.remove-icon > *,
 .remove-icon{
     margin-left: auto;
     color: #ffb510;
@@ -165,4 +180,13 @@ input[type="checkbox"]:checked::before {
 .line{
     text-decoration: line-through;
     color: #ffb510;
+}
+
+.ul{
+    padding: 0px;
+    margin: 0px;
+}
+
+.edit{
+    margin-left: 8px;
 }
