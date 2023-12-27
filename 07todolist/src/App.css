@@ -1,0 +1,157 @@
+.todo-body {
+    max-width: 400px;
+    width: 400px;
+    margin: auto;
+    background: #171717;
+    font-family: var(--font);
+    border-radius: 10px;
+    font-size: 15px;
+    overflow: hidden;
+    color: #455963;
+    box-shadow: 0 7px 30px rgba(75, 70, 6, 0.3);
+}
+
+.todo-form {
+    margin: 10px;
+    display: flex;
+    position: relative;
+}
+
+.task-input {
+    flex: 1;
+    font-size: 16px;
+    font-family: inherit;
+    padding: 10px 4px;
+    padding-right: 36px;
+    border: 0;
+    box-shadow: 0 -1px 0 #e2e4ea inset;
+    /* color: #455963; */
+    line-height: 1.15;
+    outline: none;
+    background-color: transparent;
+    color: #fff;
+    font-weight: 600;
+}
+
+.task-input::placeholder {
+    color: #a8b5bb;
+}
+
+.task-input:focus {
+    box-shadow: 0 -1px 0 #bdcdd6 inset;
+}
+
+.cover-img .cover-inner {
+    background: url(https://images.unsplash.com/photo-1565172265978-aaa872e3f618?ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80);
+    height: 190px;
+    background-size: cover;
+    background-position: 10%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+}
+
+.cover-img .cover-inner::after {
+    background: rgba(0, 0, 0, 0.5);
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cover-img h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Nunito", sans-serif;
+    text-transform: uppercase;
+    font-size: 2rem;
+    z-index: 10;
+    font-weight: 700;
+    margin: 0px;
+    color: #ffb510;
+}
+
+.plus-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.add-btn {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    color: #ffb510;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+.todo-name {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #fff;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffb510;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    margin-right: 8px;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 120ms transform ease-in-out;
+    z-index: 1;
+}
+
+input[type="checkbox"]:checked::before {
+    transition: 120ms transform ease-in-out;
+    background-color: #ffb510;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: translate(-50%, -50%) scale(1); /* Combine the transformations */
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    margin: 12px 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #a8b5bb;
+}
+
+.remove-icon{
+    margin-left: auto;
+    color: #ffb510;
+    height: 20px;
+    width: 20px;
+    margin-right: 4px;
+}
