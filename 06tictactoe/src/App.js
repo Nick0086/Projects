@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./App.css"
 function App() {
 
@@ -6,7 +6,6 @@ function App() {
   const [turn, setTurn] = useState('');
   const [error, setError] = useState('');
   const [winner, setWinner] = useState('');
-
 
   function handleui(index) {
     if (turn !== '') {
@@ -25,11 +24,9 @@ function App() {
       }
 
       wincall();
-
     } else {
       setError("Please Select Your Sign")
     }
-    wincall();
   };
 
   function wincall() {
@@ -51,7 +48,9 @@ function App() {
     win(2, 5, 8, 'o');
   }
 
+
   function win(v1, v2, v3, s) {
+    console.log(box[v1] === s && box[v2] === s && box[v3] === s)
     if (box[v1] === s && box[v2] === s && box[v3] === s) {
       setWinner(s)
       setTurn('');
@@ -63,6 +62,10 @@ function App() {
     setbox(['', '', '', '', '', '', '', '', '']);
     setTurn('');
   }
+
+  useEffect(() => {
+    wincall()
+  }, [box])
 
 
   return (
