@@ -5,6 +5,10 @@
             background-color: #72BCB3;
             font-family: cursive;
             /* width: 100vw; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .game-bord {
