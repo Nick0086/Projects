@@ -1,9 +1,17 @@
 .result-table{
     text-align: center; 
-    width: 90%; 
+    width: 100%; 
     margin: 20px auto; 
     padding: 20px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  */
     background-color: #fff; 
     border-radius: 10px;
+}
+
+.edit-btn{
+    background-color: blue;
+}
+
+.del-btn{
+    background-color: red;
 }
