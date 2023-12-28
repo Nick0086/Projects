@@ -7,6 +7,7 @@ function App() {
 
   const[id,setid] = useState(1)
   const[studentdatas, setStudentDatas] = useState([]);
+  const[editdata , setEditdata] = useState()
 
 
   // Function to handle form submission and add new student data to the state array
@@ -21,7 +22,15 @@ function App() {
     setStudentDatas(newdata);
   }
 
+  const geteditdata = (id) => {
+    let editdata= studentdatas.filter((item)=> item.id === id )
+    setEditdata(editdata);
+  }
 
+  const dataeditHandler = (id) => {
+    const newdata = studentdatas.map((data) => data.id === id.id ? id : data)
+    setStudentDatas(newdata)
+  }
 
 
 
@@ -29,8 +38,8 @@ function App() {
   return (
     <div className='app-body'>
       <h1>Student Result Form</h1>
-      <Form submitDataHandler={submitDataHandler} />
-      <StudentTable studentdatas={studentdatas} removeHandler={removeHandler} />
+      <Form submitDataHandler={submitDataHandler} editdata={editdata} dataeditHandler={dataeditHandler}  />
+      <StudentTable studentdatas={studentdatas} removeHandler={removeHandler} geteditdata={geteditdata} />
     </div>
   );
 }

@@ -1,8 +1,7 @@
 import React from 'react'
 import "./StudentTable.css"
 
-function StudentTable({studentdatas,removeHandler}) {
-  console.log(studentdatas)
+function StudentTable({studentdatas,removeHandler,geteditdata}) {
 
   return (
     <table border="1" cellPadding="8" cellSpacing="0" className='result-table' >
@@ -41,7 +40,7 @@ function StudentTable({studentdatas,removeHandler}) {
                   <td>{data.result}</td>
                   <td>{data.max}</td>
                   <td>{data.min}</td>
-                  <td><button type="submit" className='submit-btn edit-btn' >Edit</button></td>
+                  <td><button type="submit" className='submit-btn edit-btn' onClick={(e) => geteditdata(data.id)}  >Edit</button></td>
                   <td><button type="submit" className='submit-btn del-btn' onClick={(e) => removeHandler(data.id)} >Remove</button></td>
                 </tr>
               ))

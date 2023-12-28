@@ -1,7 +1,8 @@
-import React, { useState, useId } from 'react'
+import React, { useState, useId, useEffect } from 'react'
 import "./Form.css"
 
-function Form({ submitDataHandler }) {
+function Form({ submitDataHandler, editdata, dataeditHandler }) {
+
 
   let [marks, setMarks] = useState({
     name: "",
@@ -12,7 +13,7 @@ function Form({ submitDataHandler }) {
     sub5: "",
     max: "",
     min: "",
-    total:"",
+    total: "",
   });
 
   function changeHandler(event) {
@@ -59,13 +60,20 @@ function Form({ submitDataHandler }) {
     marks.min = min;
 
   }
+
+
   const submitHabdler = (e) => {
     e.preventDefault();
 
     createResult();
-    submitDataHandler(marks);
+    if (editdata) {
+      dataeditHandler(marks)
+    } else {
+      submitDataHandler(marks)
+    }
 
-    setMarks((prev) => ({...prev,  
+    setMarks((prev) => ({
+      ...prev,
       name: "",
       sub1: "",
       sub2: "",
@@ -77,6 +85,11 @@ function Form({ submitDataHandler }) {
     }))
   }
 
+  useEffect(() => {
+    if (editdata) {
+      setMarks(...editdata);
+    }
+  }, [editdata])
 
   return (
     <>
