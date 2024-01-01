@@ -1,8 +1,8 @@
-import React, { useState, useId, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import "./Form.css"
+import Input from './Input';
 
 function Form({ submitDataHandler, editdata, dataeditHandler }) {
-
 
   let [marks, setMarks] = useState({
     name: "",
@@ -16,7 +16,7 @@ function Form({ submitDataHandler, editdata, dataeditHandler }) {
     total: "",
   });
 
-  function changeHandler(event) {
+  const changeHandler = (event) => {
     const { name, value } = event.target;
     setMarks((prev) => ({ ...prev, [name]: value }))
   }
@@ -61,7 +61,6 @@ function Form({ submitDataHandler, editdata, dataeditHandler }) {
 
   }
 
-
   const submitHabdler = (e) => {
     e.preventDefault();
 
@@ -94,30 +93,53 @@ function Form({ submitDataHandler, editdata, dataeditHandler }) {
   return (
     <>
       <form className='form-body' onSubmit={submitHabdler} >
-        <div className='input-group'>
-          <label htmlFor="firstName" className='form-label' >First Name:</label>
-          <input type="text" name="name" id="firstName" className='form-input' onChange={changeHandler} value={marks.name} required></input>
-        </div>
-        <div className='input-group'>
-          <label htmlFor="ac" className='form-label' >Marks in AC:</label>
-          <input type="number" name='sub1' id="ac" className='form-input' onChange={changeHandler} value={marks.sub1} required></input>
-        </div>
-        <div className='input-group'>
-          <label htmlFor="law" className='form-label' >Marks in Law:</label>
-          <input type="number" name="sub2" id="law" className='form-input' onChange={changeHandler} value={marks.sub2} required></input>
-        </div>
-        <div className='input-group'>
-          <label htmlFor="stat" className='form-label' >Marks in Stat:</label>
-          <input type="number" name="sub3" id="stat" className='form-input' onChange={changeHandler} value={marks.sub3} required></input>
-        </div>
-        <div className='input-group'>
-          <label htmlFor="eco" className='form-label' >Marks in Eco:</label>
-          <input type="number" name="sub4" id="eco" className='form-input' onChange={changeHandler} value={marks.sub4} required></input>
-        </div>
-        <div className='input-group'>
-          <label htmlFor="audit" className='form-label' >Marks in Audit:</label>
-          <input type="number" name="sub5" id="audit" className='form-input' onChange={changeHandler} value={marks.sub5} required></input>
-        </div>
+
+        <Input
+          label="First Name"
+          type="text"
+          name="name"
+          value={marks.name}
+          changeHandler={changeHandler}
+        />
+        <Input
+          label="Marks in AC"
+          type="number"
+          name="sub1"
+          value={marks.sub1}
+          changeHandler={changeHandler}
+        />
+        
+        <Input
+          label="Marks in Law"
+          type="number"
+          name="sub2"
+          value={marks.sub2}
+          changeHandler={changeHandler}
+        />
+        
+        <Input
+          label="Marks in Stat"
+          type="number"
+          name="sub3"
+          value={marks.sub3}
+          changeHandler={changeHandler}
+        />
+        
+        <Input
+          label="Marks in Eco"
+          type="number"
+          name="sub4"
+          value={marks.sub4}
+          changeHandler={changeHandler}
+        />
+        
+        <Input
+          label="Marks in Audit"
+          type="number"
+          name="sub5"
+          value={marks.sub5}
+          changeHandler={changeHandler}
+        />
         <button type="submit" className='submit-btn' >Submit</button>
       </form>
     </>
