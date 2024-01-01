@@ -1,17 +1,14 @@
 import './App.css';
 import TodoHeader from './components/TodoHeader';
 import { FaSquarePlus } from "react-icons/fa6";
-
-
 import TodoList from './components/TodoList';
-import { useState, useId } from 'react';
+import { useState } from 'react';
 
 function App() {
 
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState('');
   const [id, setid] = useState(0)
-
 
   const todoHandler = (e) => {
     e.preventDefault();
@@ -27,11 +24,10 @@ function App() {
 
   const newTask = (nt, eId) => {
     const arry = todos.map((todo) => {
-      return todo.id == eId ? { ...todo, task: nt } : todo;
+      return todo.id === eId ? { ...todo, task: nt } : todo;
     })
     setTodos(arry)
   };
-
 
   return (
     <>

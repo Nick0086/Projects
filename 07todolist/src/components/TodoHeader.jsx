@@ -1,5 +1,4 @@
 import React from 'react'
-
 function TodoHeader() {
     return (
         <>
@@ -11,7 +10,5 @@ function TodoHeader() {
         </>
     )
 }
-
-
 
 export default TodoHeader

@@ -86,7 +86,7 @@ function Form({ submitDataHandler, editdata, dataeditHandler }) {
   }
 
   useEffect(() => {
-    if (editdata) {
+    if (editdata) { 
       setMarks(...editdata);
     }
   }, [editdata])

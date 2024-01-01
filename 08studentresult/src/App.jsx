@@ -23,7 +23,7 @@ function App() {
   }
 
   const geteditdata = (id) => {
-    let editdata= studentdatas.filter((item)=> item.id === id )
+    const editdata= studentdatas.filter((item)=> item.id === id )
     setEditdata(editdata);
   }
 
@@ -39,7 +39,9 @@ function App() {
     <div className='app-body'>
       <h1>Student Result Form</h1>
       <Form submitDataHandler={submitDataHandler} editdata={editdata} dataeditHandler={dataeditHandler}  />
-      <StudentTable studentdatas={studentdatas} removeHandler={removeHandler} geteditdata={geteditdata} />
+      {
+        studentdatas.length !== 0 && <StudentTable studentdatas={studentdatas} removeHandler={removeHandler} geteditdata={geteditdata} />
+      }
     </div>
   );
 }

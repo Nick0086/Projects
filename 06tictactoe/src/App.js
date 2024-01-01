@@ -17,11 +17,7 @@ function App() {
       // store copy arry in main array setboox
       setbox(newbox)
 
-      if (turn === "x") {
-        setTurn('o')
-      } else {
-        setTurn('x')
-      }
+      setTurn((turn === "x" ? 'o' : 'x'))
 
       wincall();
     } else {
