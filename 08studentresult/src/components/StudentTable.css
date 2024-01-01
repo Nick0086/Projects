@@ -15,3 +15,13 @@
 .del-btn{
     background-color: red;
 }
+
+.print-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0px;
+  }
