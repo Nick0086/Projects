@@ -4,7 +4,7 @@ import { FaUser, FaComment } from "react-icons/fa";
 import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
-import blogData from '../data/blog';
+import {blogData} from '../data/blog';
 
 
 
@@ -12,7 +12,6 @@ function Blogs() {
 
 
     const data = blogData;
-    console.log(data)
 
     return (
         <Container className='p-128' >
@@ -21,7 +20,6 @@ function Blogs() {
                 <h2>Recent From Blog</h2>
             </div>
             <Row className='mb-5'>
-
                 {
                     data.map((data) => (
                         <Col md={6} className='mb-4'>
@@ -30,7 +28,7 @@ function Blogs() {
 
                                     <Col className="" xs={{ order: 0 }} lg={data.imageposition === "left" ? { order: 0 } : { order: 1 }} >
                                         <div className='blog-img overflow-hidden w-100'>
-                                            <img src={require('../assets/image_1.jpg')} className='w-100 object-fit-cover h-100' alt="" />
+                                            <img src={data.img} className='w-100 object-fit-cover h-100' alt="" />
                                         </div>
                                     </Col>
 
@@ -50,9 +48,8 @@ function Blogs() {
                         </Col>
                     ))
                 }
-
             </Row>
         </Container>
     )
-
+}
 export default Blogs;
