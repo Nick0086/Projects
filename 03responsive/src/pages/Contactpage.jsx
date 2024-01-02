@@ -3,8 +3,6 @@ import '../App.css';
 import { FaGreaterThan } from "react-icons/fa";
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
-import Headers from '../components/Header';
-import Footer from '../components/Footer';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 

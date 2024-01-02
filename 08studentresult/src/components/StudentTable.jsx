@@ -64,7 +64,7 @@ function StudentTable({ studentdatas, removeHandler, geteditdata }) {
           <td>${data.sub3}</td>
           <td>${data.sub4}</td>
           <td>${data.sub5}</td>
-          <td>${data.total}</td>
+          <td>${data.total}</td> 
           <td>${data.percentage}</td>
           <td>${data.result}</td>
           <td>${data.max}</td>

@@ -3,10 +3,8 @@ import '../App.css';
 import { FaGreaterThan } from "react-icons/fa";
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
-import Headers from '../components/Header';
 import Testimonial from '../components/Testimonial';
-import Statistics from '../components/Statistics';
-import Footer from '../components/Footer';
+import Statistics from '../components/Statistics'
 
 function Aboutus() {
     return (

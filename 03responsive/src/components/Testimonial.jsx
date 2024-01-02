@@ -1,10 +1,9 @@
 import Container from 'react-bootstrap/esm/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import '../App.css';
 
 import OwlCarousel from 'react-owl-carousel';
 import { userdata } from '../data/testimonial';
+import TestimonitalCard from './TestimonitalCard';
 
 const owl = {
     responsive: {
@@ -37,21 +36,8 @@ function Testimonial() {
                     <div>
                         <OwlCarousel className='owl-theme' loop margin={10} center={true} {...owl} >
                             {
-                                data.map((data) => (
-                                    <div className='mb-3 mb-lg-0' >
-                                        <div className='bg-white rounded-2 p-4' >
-                                            <p className='mb-3'>{data.reviwe}</p>
-                                            <div className='client-info d-flex align-items-center'>
-                                                <div className='client-pic'>
-                                                    <img src={data.Image} className='rounded-circle me-3 overflow-hidden' alt="" />
-                                                </div>
-                                                <div className='client-detail'>
-                                                    <h4 className='mb-1' >{data.name}</h4>
-                                                    <p className='mb-0' >{data.position}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                data.map((data,index) => (
+                                    <TestimonitalCard key={index} {...data} />
                                 ))
                             }
                         </OwlCarousel>
