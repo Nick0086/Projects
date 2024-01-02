@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 
-function Headers() {
+function Headers({headerData}) {
     return (
         <>
             <Navbar expand="md" className="bg-body-tertiar" fixed="top"  >
@@ -18,11 +18,11 @@ function Headers() {
                             style={{ maxHeight: '300px' }}
                             navbarScroll
                         >
-                            <Link to="/"  className='nav-link active' >Home</Link>
-                            <Link to="/about" className='nav-link' >about</Link>
-                            <Link to="/collection" className='nav-link' >collection</Link>
-                            <Link to="/blog" className='nav-link' >blog</Link>
-                            <Link to="/contact" className='nav-link' >contact</Link>
+                            {
+                                headerData.map((item,index) => (
+                                    <Link key={index} to={item.link}  className='nav-link' >{item.page}</Link>
+                                ))
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

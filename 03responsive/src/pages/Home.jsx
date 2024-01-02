@@ -6,13 +6,13 @@ import Slider from "../components/Slider";
 import Statistics from "../components/Statistics";
 import Testimonial from "../components/Testimonial";
 
-function Home() {
+function Home({collectionData}) {
     return(
         <>
             <Slider/>
             <Services/>
             <About/>
-            <Colllection/>
+            <Colllection collectionData={collectionData}/>
             <Statistics/>
             <Testimonial/>
             <Blogs/>
