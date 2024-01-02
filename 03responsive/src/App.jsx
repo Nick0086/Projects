@@ -13,6 +13,11 @@ import { Route, Routes } from 'react-router-dom';
 import Headers from './components/Header';
 import Footer from './components/Footer';
 
+import { FaRegHandshake } from "react-icons/fa6";
+import { GiWoodBeam } from "react-icons/gi";
+import { LuSofa } from "react-icons/lu";
+import { RiCustomerService2Line } from "react-icons/ri";
+
 
 const header = [
   {
@@ -120,14 +125,60 @@ const fullcollection = [
   },
 ]
 
+const service = [
+  {
+    icon:<FaRegHandshake />,
+    title:"Amazing Deals",
+    des:"Far far away, behind the word mountains, far from the countries Vokalia.",
+    classname:"color-1"
+  },
+  {
+    icon:<GiWoodBeam />,
+    title:"Quality Furniture",
+    des:"Far far away, behind the word mountains, far from the countries Vokalia.",
+    classname:"color-2"
+  },
+  {
+    icon:<LuSofa />,
+    title:"Modern Design",
+    des:"Far far away, behind the word mountains, far from the countries Vokalia.",
+    classname:"color-3"
+  },
+  {
+    icon:<RiCustomerService2Line />,
+    title:"Best Support",
+    des:"Far far away, behind the word mountains, far from the countries Vokalia.",
+    classname:"color-4"
+  },
+]
+
+const statistics =[
+  {
+    stat:20,
+    des:"YEAR OF EXPERIENCED",
+  },
+  {
+    stat:`10,200`,
+    des:"SATISFIED CUSTOMERS",
+  },
+  {
+    stat:9850,
+    des:"PROJECT COMPLETED",
+  },
+  {
+    stat:20,
+    des:"GET AWARDS",
+  },
+]
+
 
 function App() {
   return (
     <>
       <Headers headerData={header} />
       <Routes>
-        <Route path='/' element={<Home collectionData={collection} />} />
-        <Route path='/about' element={<Aboutus />} />
+        <Route path='/' element={<Home collectionData={collection} serviceData={service} statisticsData={statistics} />} />
+        <Route path='/about' element={<Aboutus statisticsData={statistics}  />} />
         <Route path='/collection' element={<Colllectionpage fullcollectionDatat={fullcollection} />} />
         <Route path='/blog' element={<Blogpage />} />
         <Route path='/contact' element={<Contact />} />

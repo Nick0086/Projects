@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/esm/Col';
 import Testimonial from '../components/Testimonial';
 import Statistics from '../components/Statistics'
 
-function Aboutus() {
+function Aboutus({statisticsData}) {
     return (
         <>
             <section className='bg-intro w-100 vh-100 position-relative z-0' >
@@ -40,7 +40,7 @@ function Aboutus() {
                     </Row>
                 </Container>
             </section>
-            <Statistics />
+            <Statistics statisticsData={statisticsData} />
             <Testimonial />
         </>
     )

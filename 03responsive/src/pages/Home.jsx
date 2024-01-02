@@ -6,14 +6,14 @@ import Slider from "../components/Slider";
 import Statistics from "../components/Statistics";
 import Testimonial from "../components/Testimonial";
 
-function Home({collectionData}) {
+function Home({collectionData,serviceData,statisticsData}) {
     return(
         <>
             <Slider/>
-            <Services/>
+            <Services serviceData={serviceData}/>
             <About/>
             <Colllection collectionData={collectionData}/>
-            <Statistics/>
+            <Statistics statisticsData={statisticsData}/>
             <Testimonial/>
             <Blogs/>
         </>
