@@ -33,8 +33,6 @@ function App() {
   }
 
 
-
-
   return (
     <div className='app-body'>
       <h1>Student Result Form</h1>
