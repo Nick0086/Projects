@@ -183,7 +183,7 @@ function App() {
         <Route path='/blog' element={<Blogpage />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
-      <Footer />
+      <Footer />   
     </>
   );
 }
