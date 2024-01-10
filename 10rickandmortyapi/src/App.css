@@ -43,6 +43,14 @@ p {
     line-height: 20px !important;
 }
 
+.bg-blue{
+    background-color: var(--var-soft-blue) !important;
+    color: black !important;
+    text-transform: capitalize;
+    font-weight: 600 !important;
+    margin: 0px 8px;
+}
+
 @media screen and (max-width:767px){
     p {
         font-size: 16px;
