@@ -1,0 +1,37 @@
+.card-container{
+    width: 100% ;
+    background-color: var(--var-card-dark);
+    border-radius: 15px;
+    padding: 12px 16px;
+    height: 100% !important;
+}
+
+img {
+    width: 100%;
+    border-radius: 15px;
+    display: block;
+}
+
+.status_icon{
+    height: 8px !important;
+    width: 8px !important;
+    margin-right: 8px;
+    background: rgb(85, 204, 68) ;
+    border-radius: 50% !important;
+}
+.bg-red{
+    background: rgb(214, 61, 46) !important;
+}
+
+.bg-unkon{
+    background: rgb(158, 158, 158) !important;
+}
+
+@media screen and (max-width:991px){
+    .card-container{
+        padding: 28px;
+    }
+    .character-info{
+        margin-top: 24px;
+    }
+}
