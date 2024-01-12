@@ -9,7 +9,7 @@ import Buttons from './components/Button';
 function App() {
 
   const [characterData, setCharacterData] = useState([]);
-  const [page,setPage] = useState(1);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
 
@@ -26,11 +26,15 @@ function App() {
       {
         characterData.results && <Container className='my-5' >
           <Row md={2} sm={1} className='my-4' >
-            {characterData.results && characterData.results.map((data) => (<Col className='mb-4' key={data.id} ><Card key={data.id} character={data} /></Col>))}
+            {characterData.results
+              && characterData.results.map((data) => (
+                <Col className='mb-4' key={data.id} ><Card key={data.id} character={data} /></Col>
+              ))
+            }
           </Row>
           <div className='text-center' >
-            <Buttons disabled={characterData.info.prev === null ? true : false} onClick={() => setPage(page-1)}>Prev</Buttons>
-            <Buttons disabled={characterData.info.next === null ? true : false} onClick={() => setPage(page+1)}>next</Buttons>
+            <Buttons disabled={characterData.info.prev === null ? true : false} onClick={() => setPage(page - 1)}>Prev</Buttons>
+            <Buttons disabled={characterData.info.next === null ? true : false} onClick={() => setPage(page + 1)}>next</Buttons>
           </div>
         </Container>
       }
