@@ -3,29 +3,34 @@ import './App.css';
 import Header from './Components/Header';
 import HomePage from './Pages/HomePage';
 import axios from 'axios';
-import { Outlet, Route, Routes} from 'react-router-dom';
+import { Outlet, Route, Routes } from 'react-router-dom';
+import ProductDetailPage from './Pages/ProductDetailPage';
 
 function App() {
 
   const [products, setProducts] = useState(null);
   const [limit, setLimite] = useState(0);
-  const [category,setCategory] = useState();
-  let url  =  'https://dummyjson.com/products'
+  const [category, setCategorys] = useState();
+  // const [serch, setSerch] = useState();
+  
 
   const categoryHandler = (catego) => {
-    setCategory(catego);
+    setCategorys(catego);
   }
 
-  useEffect(() => {
+  // const serchHandler = (serchValue) => {
+  //   setSerch(serchValue);
+  // }
 
-    if(category){
-       url = `https://dummyjson.com/products/category/${category}`;
+  useEffect(() => {
+    let url = 'https://dummyjson.com/products'
+    if (category) {
+      url = `https://dummyjson.com/products/category/${category}`;
     }
-    axios.get(`${url}?skip=${limit}&limit=${(limit + 30) < 100 ? limit + 30 : 100}`)
+    axios.get(`${url}?skip=${limit}&limit=30`)
       .then((res) => setProducts(res.data))
       .catch(error => console.log("error in fetch products : ", error));
-
-  }, [limit,category])
+  }, [limit, category])
 
   console.log(products)
 
@@ -37,10 +42,11 @@ function App() {
             <Header />
             <Outlet />
 
-
             <Routes>
-              <Route path='/' element={<HomePage products={products} limit={limit} setLimite={setLimite} setCategory={categoryHandler}/>} />
-              <Route path='/products/category/:category' element={<HomePage products={products} limit={limit} setCategory={categoryHandler} setLimite={setLimite}/>} />
+              <Route path='/' element={<HomePage products={products} limit={limit} setLimite={setLimite} setCategory={categoryHandler} />} />
+              <Route path='/products/category/:category' element={<HomePage products={products} limit={limit} setCategory={categoryHandler} setLimite={setLimite} />} />
+              <Route path='/products/searchsearch?q=:keyword' element={<HomePage products={products} limit={limit} setLimite={setLimite}  />} />
+              <Route path='/productdetail' element={<ProductDetailPage/>} />
             </Routes>
           </>
       }
