@@ -41,11 +41,10 @@ function App() {
           <>
             <Header />
             <Outlet />
-
             <Routes>
               <Route path='/' element={<HomePage products={products} limit={limit} setLimite={setLimite} setCategory={categoryHandler} />} />
               <Route path='/products/category/:category' element={<HomePage products={products} limit={limit} setCategory={categoryHandler} setLimite={setLimite} />} />
-              <Route path='/products/searchsearch?q=:keyword' element={<HomePage products={products} limit={limit} setLimite={setLimite}  />} />
+              <Route path='/products/search/:keyword' element={<HomePage products={products} limit={limit} setLimite={setLimite}  />} />
               <Route path='/productdetail' element={<ProductDetailPage/>} />
             </Routes>
           </>
