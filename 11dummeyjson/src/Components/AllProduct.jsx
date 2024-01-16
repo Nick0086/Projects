@@ -16,7 +16,7 @@ function AllProduct({ products ,SidebarHandler}) {
             <SerchBar />
           </div>
           <div className='md:hidden col-span-2 ' >
-            <Button className='px-[10px] py-[10px]' onClick={SidebarHandler} >
+            <Button className='px-[10px] py-[10px]' onClick={ () =>  SidebarHandler(true)} >
             <FaBars />
             </Button>
           </div>

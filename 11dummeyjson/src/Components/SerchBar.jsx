@@ -2,20 +2,20 @@ import React, { useState } from 'react'
 import Button from './Button';
 import InputBox from './Input'
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { useNavigate } from 'react-router-dom';
 // import {  useParams } from 'react-router-dom';
 
 function SerchBar() {
 
     const [serch, setserch] = useState("")
+    const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault()
-    // if (serch !== "") {
-    //   console.log("serch",serch)
-    //   console.log("keyword",keyword)
-    //   navigate(`/products/search?q=${keyword}`)
-    //   setserch("");
-    // }
+    
+    navigate(`/search/${serch}`);
+    setserch("");
+
   }
     return (
         <form className='relative md:w-2/3 w-[96%]  mx-auto md:mb-8' onSubmit={submitHandler} >
