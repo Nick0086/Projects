@@ -10,7 +10,7 @@ function Header() {
         <header className='border-b-2 bg-slate-100'>
             <Container>
                 <div className='flex justify-between py-5 items-center ' >
-                    <Link>
+                    <Link to="/ ">
                         <img src={require('../Assets/logo.png')} alt="logo" />
                     </Link>
                     <ul className='flex text-xl' >
