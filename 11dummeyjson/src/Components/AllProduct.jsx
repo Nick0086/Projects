@@ -6,14 +6,14 @@ import Button from './Button';
 
 
 
-function AllProduct({ products ,SidebarHandler}) {
+function AllProduct({ products ,SidebarHandler,serchHandler}) {
 
   return (
     <div className='' >
       <h2 className='md:text-4xl text-3xl text-[#D51243] font-semibold text-center my-6 mb-8' >Explore our Products</h2>
         <div className='md:block grid md:grid-cols-1 grid-cols-12 items-center justify-items-center px-4 md:mb-0 mb-6 gap-1 ' >
           <div className='md:col-span-1 col-span-10' >
-            <SerchBar />
+            <SerchBar serchHandler={serchHandler} />
           </div>
           <div className='md:hidden col-span-2 ' >
             <Button className='px-[10px] py-[10px]' onClick={ () =>  SidebarHandler(true)} >

@@ -8,43 +8,28 @@ function HomePage() {
 
     const [products, setProducts] = useState(null);
     const [limit, setLimite] = useState(0);
-    const [category, setCategorys] = useState();
-    const [serch, setSerch] = useState();
     const [show, setShow] = useState(false)
-    const { keyword, categoryname } = useParams();
+    const { categoryname } = useParams();
 
     const SidebarHandler = (value) => {
         setShow(value)
     }
 
-    // for chaange in category
-
-    useEffect(() => {
-        setLimite(0);
-        console.log("categoryname", categoryname)
-        setCategorys(categoryname)
-    }, [categoryname])
-
-    // useEEffect trigger when user serch product
-
-    useEffect(() => {
-        setLimite(0);
-        console.log("keyword", keyword)
-        setSerch(keyword)
-    }, [keyword])
+    const serchHandler = (keywords) => {
+        axios.get(`https://dummyjson.com/products/search?q=${keywords}`)
+            .then((res) => setProducts(res.data))
+            .catch(error => console.log("error in fetch products : ", error));
+    }
 
     useEffect(() => {
         let url = `https://dummyjson.com/products?skip=${limit}&limit=30`
-        if (category) {
-            url = `https://dummyjson.com/products/category/${category}?skip=${limit}&limit=30`;
-        }
-        if (serch) {
-            url = `https://dummyjson.com/products/search?q=${serch} `
+        if (categoryname) {
+            url = `https://dummyjson.com/products/category/${categoryname}?skip=${limit}&limit=30`;
         }
         axios.get(`${url}`)
             .then((res) => setProducts(res.data))
             .catch(error => console.log("error in fetch products : ", error));
-    }, [limit, category,serch])
+    }, [limit, categoryname])
 
     console.log(products,)
 
@@ -57,7 +42,7 @@ function HomePage() {
                             <SideBar SidebarHandler={SidebarHandler} setLimite={setLimite} />
                         </div>
                         <div className='md:col-span-9 col-span-12' >
-                            <AllProduct products={products} SidebarHandler={SidebarHandler} />
+                            <AllProduct products={products} SidebarHandler={SidebarHandler} serchHandler={serchHandler} />
                             <Pagination limit={limit} productslimit={products} setLimite={setLimite} />
                         </div>
                     </div> :

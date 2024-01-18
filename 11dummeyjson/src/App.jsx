@@ -12,7 +12,6 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/products/category/:categoryname' element={<HomePage />} />
-        <Route path='/search/:keyword' element={<HomePage />} />
         <Route path='/productdetail' element={<ProductDetailPage />} />
       </Routes>
     </>
