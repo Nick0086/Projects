@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaRegStar } from "react-icons/fa6";
-import Button from './Button';
 
 
 function ProductCard({ item }) {
@@ -26,9 +25,9 @@ function ProductCard({ item }) {
                         ₹{(item.price - (item.price * (item.discountPercentage / 100))).toFixed(2)}
                         <span className='line-through text-gray-400 opacity-75 ms-4' >₹{item.price}</span>
                     </p>
-                    <div className='mt-4' >
+                    {/* <div className='mt-4' >
                         <Button>Add to Cart</Button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </Link>

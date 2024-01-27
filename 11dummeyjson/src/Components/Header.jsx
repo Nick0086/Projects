@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaRegHeart, FaCartShopping } from "react-icons/fa6";
-
 import Container from './Container';
-
+import { useSelector } from 'react-redux';
 
 function Header() {
+
+    const cartItems = useSelector((state) => state.cart.items);
+
     return (
         <header className='border-b-2 bg-slate-100'>
             <Container>
@@ -13,15 +15,19 @@ function Header() {
                     <Link to="/ ">
                         <img src={require('../Assets/logo.png')} alt="logo" />
                     </Link>
-                    <ul className='flex text-xl' >
+                    <ul className='flex text-2xl' >
                         <li className='ms-5'>
                             <Link><FaRegHeart /></Link>
                         </li>
                         <li className='ms-5'>
-                            <Link><FaCartShopping /></Link>
+                            <Link className='relative' to='/cart' ><FaCartShopping />
+                                {
+                                    cartItems.length > 0 && <span className='absolute text-xs font-medium text-white flex justify-center items-center rounded-full -top-[40%] -right-[40%] bg-red-600 h-[20px] w-[20px] ' >{cartItems.length}</span>
+                                }
+                            </Link>
                         </li>
                     </ul>
-                    
+
                 </div>
             </Container>
         </header>

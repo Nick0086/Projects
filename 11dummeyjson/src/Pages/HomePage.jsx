@@ -24,14 +24,13 @@ function HomePage() {
     useEffect(() => {
         let url = `https://dummyjson.com/products?skip=${limit}&limit=30`
         if (categoryname) {
+            setLimite(0)
             url = `https://dummyjson.com/products/category/${categoryname}?skip=${limit}&limit=30`;
         }
         axios.get(`${url}`)
             .then((res) => setProducts(res.data))
             .catch(error => console.log("error in fetch products : ", error));
     }, [limit, categoryname])
-
-    console.log(products,)
 
     return (
         <>

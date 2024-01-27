@@ -8,7 +8,7 @@ function Button({
     ...propes
 }) {
   return (
-    <button type={type} disabled={disabled}  className={`bg-[#D51243] p-2 px-6 rounded-lg text-white font-semibold duration-300 ${disabled ? "bg-red-400" : "hover:bg-red-500"} ${className} `} {...propes} >{children}</button>
+    <button type={type} disabled={disabled}  className={`bg-[#D51243] p-2 px-6 rounded-lg text-white font-semibold duration-300 ${className}  ${disabled ? "bg-red-400" : "hover:bg-red-500"} `} {...propes} >{children}</button>
   )
 }
 

@@ -9,7 +9,6 @@ function ProductDetailPage() {
   const[singleProduct,setSingleProduct] = useState();
 
   const { id } = useParams();
-  console.log("id", id)
 
   useEffect(() => {
     axios.get(`https://dummyjson.com/products/${id}`)
