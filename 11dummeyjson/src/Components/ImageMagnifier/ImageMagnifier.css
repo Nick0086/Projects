@@ -1,0 +1,24 @@
+.image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .image {
+    display: block;
+    /* max-width: 100%; */
+    height: auto;
+  }
+  
+  .magnifier {
+    position: absolute;
+    width: 200%; /* Adjust the magnifier size as needed */
+    height: 200%;
+    top: 0;
+    right: 0%;
+    border: 2px solid #333; /* Magnifier border color */
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    /* cursor: none; */
+    z-index: 2;
+  }
+  

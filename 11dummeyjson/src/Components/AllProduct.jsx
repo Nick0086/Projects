@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ProductCard from './ProductCard';
 import SerchBar from './SerchBar';
 import { FaBars } from "react-icons/fa6";

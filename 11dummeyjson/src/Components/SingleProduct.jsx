@@ -1,26 +1,38 @@
 import React, { useState } from 'react'
 import { FaRegStar, FaRegHeart } from "react-icons/fa6";
 import Button from './Button'
+import ImageMagnifier from './ImageMagnifier/ImageMagnifier';
+import Zoom from 'react-medium-image-zoom'
+
+import 'react-medium-image-zoom/dist/styles.css'
+
+
 
 function SingleProduct({ item }) {
 
     console.log("singleProduct", item)
     const [qty, setQty] = useState(0)
-
     const [thumbnail, setThumbnail] = useState(item.thumbnail)
-    const sizeArray = ["XS", "s", "m", "l", "xl"]
+
+
 
     return (
         <div className='w-[90%] mx-auto grid grid-cols-12 gap-10 bg-white p-6 rounded-2xl' >
             <div className='col-span-6'>
-                <div className='w-full mb-4'>
-                    <img src={thumbnail} className='w-full aspect-[16/12]' alt="" />
+                <div className='w-full mb-4 relative'>
+                    <Zoom overlayBgColorEnd="rgba(255,255,255,0.95)">
+                        <img src={thumbnail} className='w-full aspect-[16/9]' alt="" />
+                    </Zoom>
+                    {/* <img src={thumbnail} className='w-full aspect-[16/9] ' alt="" /> */}
+                    {/* <ImageMagnifier src={thumbnail} alt="" /> */}
                 </div>
+
+
                 <ul className={`grid grid-cols-10 justif-between gap-x-3 `} >
                     {
                         item.images.map((item) => (
                             <li className='col-span-2 border border-black' >
-                                <img src={item} alt="" className='h-full cursor-pointer aspect-square' onClick={ () => setThumbnail(item)} />
+                                <img src={item} alt="" className='h-full cursor-pointer aspect-square' onClick={() => setThumbnail(item)} />
                             </li>
                         ))
                     }
@@ -32,22 +44,12 @@ function SingleProduct({ item }) {
                     {item.rating}<FaRegStar className='ms-1' />
                 </div>
                 <p className='text-xl font-semibold mb-4'>
-                    ₹{(item.price - (item.price * (item.discountPercentage / 100))).toFixed(2)}
+                    ₹{(item.price - (item.price * (item.discountPercentage / 100))).toFixed(0)}
 
                     <span className='line-through text-gray-400 opacity-75 ms-4' >₹{item.price}</span>
                 </p>
                 <p className='px-4 py-1 bg-green-500 inline-block rounded-lg text-white font-bold mb-4' >{item.stock > 0 ? "In stock" : "out of stock"}</p>
                 <p className='text-gray-800 font-medium mb-4' >{item.description}</p>
-                <div className='flex items-center mb-4' >
-                    <p className='font-extrabold text-lg' >Size :</p>
-                    <ul className='flex ms-2' >
-                        {
-                            sizeArray.map((size, index) => (
-                                <li className='capitalize mx-2 flex justify-center items-center cursor-pointer border h-10 w-10 rounded-full duration-500 hover:border-black ' key={index} >{size}</li>
-                            ))
-                        }
-                    </ul>
-                </div>
                 <div className='flex items-center mb-4' >
                     <p className='font-extrabold text-lg' >Qty :</p>
                     <div className='flex items-center ms-4' >
