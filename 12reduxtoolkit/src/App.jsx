@@ -10,12 +10,15 @@ function App() {
   const disPatch = useDispatch();
 
   return (
-   <div>
-      <h2>{counterValue}</h2>
-      <button onClick={disPatch(increment(values))} >Increment</button>
-      <button onClick={disPatch(decrement(values))}>Decrement</button>
-      <input type="text" value={values} onChange={(e) => setValues(e.target.value)} />
-   </div>
+    <div className="container">
+    <h2 className="counter">{counterValue}</h2>
+    <div className="buttons">
+      <button className="btn" onClick={() => disPatch(increment(values))}>Increment</button>
+      <button className="btn" onClick={() => disPatch(decrement(values))}>Decrement</button>
+    </div>
+    <label htmlFor="in" className="label">Enter value you want to increment or decrement</label>
+    <input id="in" type="number" value={values} onChange={(e) => setValues(e.target.value)} placeholder='Enter Value' className="input" />
+ </div>
   );
 }
 
