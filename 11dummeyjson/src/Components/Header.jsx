@@ -22,7 +22,7 @@ function Header() {
                         <li className='ms-5'>
                             <Link className='relative' to='/cart' ><FaCartShopping />
                                 {
-                                    cartItems.length > 0 && <span className='absolute text-xs font-medium text-white flex justify-center items-center rounded-full -top-[40%] -right-[40%] bg-red-600 h-[20px] w-[20px] ' >{cartItems.length}</span>
+                                    cartItems.length > 0 && <span className='absolute text-xs font-medium text-white flex justify-center items-center rounded-full -top-[40%] md:-right-[40%] -right-[15%] bg-red-600 h-[20px] w-[20px] ' >{cartItems.length}</span>
                                 }
                             </Link>
                         </li>

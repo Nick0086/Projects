@@ -81,8 +81,8 @@ function SingleProduct({ item }) {
                         <Button className='p-[0px] px-[0px] h-7 w-7 ms-2 flex justify-center items-center bg-slate-400' disabled={qty >= 10}  onClick={() => setQty(qty + 1)} >+</Button>
                     </div>
                 </div>
-                <div className='flex items-center lg:w-[50%] md:w-[70%]  justify-between' >
-                    <Button className='px-3' onClick={addtoCartHandler} >
+                <div className='flex items-center lg:w-[50%] md:w-[80%]  justify-between' >
+                    <Button className='px-3 lg:text-base text-base' onClick={addtoCartHandler} >
                         {
                             itemAdd ? "Remove to Cart" : "Add to Cart"
                         }
