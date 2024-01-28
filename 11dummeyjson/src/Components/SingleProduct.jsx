@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { FaRegStar, FaRegHeart } from "react-icons/fa6";
 import Button from './Button'
 
-import 'react-medium-image-zoom/dist/styles.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { addtoCart, removetoCart } from '../Slice/CartSlice';
 
