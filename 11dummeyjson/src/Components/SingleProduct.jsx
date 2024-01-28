@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FaRegStar, FaRegHeart } from "react-icons/fa6";
 import Button from './Button'
-import Zoom from 'react-medium-image-zoom'
 
 import 'react-medium-image-zoom/dist/styles.css'
 import { useDispatch, useSelector } from 'react-redux';
@@ -45,9 +44,7 @@ function SingleProduct({ item }) {
         <div className='md:w-[90%] w-[98%] md:my-0 my-3 mx-auto grid grid-cols-12 md:gap-10 gap-y-3 bg-white md:p-6 p-3 rounded-2xl shadow-lg' >
             <div className='md:col-span-6 col-span-12'>
                 <div className='w-full mb-4 relative'>
-                    <Zoom overlayBgColorEnd="rgba(255,255,255,0.95)">
                         <img src={thumbnail} className='md:w-full  lg:aspect-[14/9] md:aspect-[16/16] rounded-lg ' alt="" />
-                    </Zoom>
                     {/* <img src={thumbnail} className='w-full aspect-[16/9] ' alt="" /> */}
                     {/* <ImageMagnifier src={thumbnail} alt="" /> */}
                 </div>
