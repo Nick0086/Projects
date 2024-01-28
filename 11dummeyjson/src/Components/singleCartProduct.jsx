@@ -46,7 +46,7 @@ function SingleCartProduct({ item }) {
                 </p>
             </div>
             <div className='md:col-span-1 col-span-6  md:flex justify-center items-center md:static absolute top-[2%] right-[1%] '>
-                <Button className='lg:px-1 lg:py-1 md:px-1 md:py-1 p-[4px]  text-xl ' onClick={() => dispatch(removetoCart(item.id))} ><IoIosCloseCircle /></Button>
+                <Button className='lg:px-1 lg:py-1 md:px-1 md:py-1 px-[4px] py-[4px]  text-xl ' onClick={() => dispatch(removetoCart(item.id))} ><IoIosCloseCircle /></Button>
             </div>
         </>
     )
