@@ -1,0 +1,41 @@
+.w-20{
+  width: 20%;
+  order: 1;
+}
+.w-80{
+  width: 80%;
+  order: 0;
+}
+
+.form-body{
+  min-height: 130vh;
+}
+.bg-image{
+  background-image: url('./asset/bg_1.jpg.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+span{
+  color:red;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+
+}
+
+@media screen  and (max-width: 768px){
+  .w-20{
+    width: 100%;
+    height: 60vh;
+    order: 0;
+  }
+  .w-80{
+    width: 100%;
+    order: 1;
+  }
+
+  .bg-prome{
+    padding: 40px 0px;
+  }
+}
