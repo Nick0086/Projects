@@ -5,6 +5,8 @@ function App() {
 
   const [counter,setCounter] = useState(0);
 
+  const [name, setName] = useState(["1","2","3"]);
+  console.log("name",name)
 
   return (
     <>

@@ -15,6 +15,7 @@ function Forms() {
         password: '',
         confpassword: '',
         check: false,
+        gender:'',
     }
 
     const validation = yup.object({
@@ -27,10 +28,11 @@ function Forms() {
             .matches(/(?=[a-z])/, "Password should contain a  small letter")
             .matches(/(?=[A-Z])/, "Password should contain a capital letter").required("Password is Required"),
         confpassword: yup.string().oneOf([yup.ref('password')], 'Confirm Password do not match with Passwords !'),
-        check: yup.boolean().isTrue(`Check field must be Ckeck`)
+        check: yup.boolean().isTrue(`Check field must be Ckeck`),
+        gender:  yup.string().required( "Gender is required").oneOf(['Male','Female','Other']),
     })
 
-    const { values, handleSubmit, handleChange, handleBlur, touched, errors } = useFormik({
+    const { values, handleSubmit, handleChange, handleBlur, touched, errors,handleReset } = useFormik({
         initialValues: initialValues,
         validationSchema: validation,
         onSubmit: (values) => {
@@ -91,6 +93,43 @@ function Forms() {
                                         touched.confpassword && errors.confpassword && <span>{errors.confpassword}</span>
                                     }
                                 </Col>
+                                <Col xs={12} className='mb-4' >
+                                <Form.Label className='form-label me-4' >Gender</Form.Label>
+                                    <Form.Check
+                                        inline
+                                        label="Male"
+                                        name="gender"
+                                        type="radio"
+                                        id={`inline-radio-1`}
+                                        className=''
+                                        value="Male"
+                                        onChange={handleChange}
+                                         onBlur={handleBlur}
+                                    />
+                                    <Form.Check
+                                        inline
+                                        label="Female"
+                                        name="gender"
+                                        type="radio"
+                                        id={`inline-radio-2`}
+                                        value="Female"
+                                        onChange={handleChange}
+                                         onBlur={handleBlur}
+                                    />
+                                    <Form.Check
+                                        inline
+                                        label="Other"
+                                        name="gender"
+                                        type="radio"
+                                        id={`inline-radio-3`}
+                                        value="Other"
+                                        onChange={handleChange}
+                                         onBlur={handleBlur}
+                                    />
+                                    {
+                                        touched.gender && errors.gender && <span className='d-block' >{errors.gender}</span>
+                                    }
+                                </Col>
                                 <Col xs={12} className='d-flex '>
                                     <Form.Check className=' me-2 ' id="check" name='check' type="checkbox" checked={values.check} value={values.check} onChange={handleChange} onBlur={handleBlur} /><Form.Label className="caption" htmlFor="check">Creating an account means you're okay with our Terms and Conditionsand our Privacy Policy.</Form.Label>
                                 </Col>
@@ -100,6 +139,9 @@ function Forms() {
                                 <Col xs={12} className='mt-4' >
                                     <Button variant="warning" type="submit">
                                         Submit
+                                    </Button>
+                                    <Button variant="warning" type="reset" onClick={handleReset} >
+                                        Reset
                                     </Button>
                                 </Col>
                             </Row>
